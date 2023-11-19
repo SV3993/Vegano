@@ -38,7 +38,7 @@ export default function Cart() {
     let totalPrice = data.reduce((total, food) => total + food.price, 0);
     return (
         <div>
-            <div className='container m-auto mt-5 table-responsive table-responsive-sm table-responsive-md' style={{borderRadius:"3px"}}>
+            <div className='container m-auto mt-5 table-responsive table-responsive-sm table-responsive-md' style={{ borderRadius: "3px" }}>
                 <table className='table table-hover table-bordered' >
                     <thead className='bg-success text-white fs-4'>
                         <tr>
@@ -71,8 +71,21 @@ export default function Cart() {
                         ))}
                     </tbody>
                 </table>
-                <div><h1 className='fs-2 text-success'>Total Price: ₹{totalPrice.toFixed(2)}</h1></div>
-                <button className='btn btn-success mt-3' onClick={handleCheckOut}>Check Out</button>
+                <div><h1 className='fs-2 ' style={{ color: "bisque" }}>Total Price: ₹{totalPrice.toFixed(2)}</h1></div>
+                <button
+                    className='btn btn-success mt-3'
+                    style={{
+                        backgroundColor: "bisque",
+                        color: "black",
+                        transition: 'background-color 0.3s ease, color 0.3s ease',
+                    }}
+                    onClick={handleCheckOut}
+                    onMouseOver={(e) => e.target.style.backgroundColor = "#5f8569"}
+                    onMouseOut={(e) => e.target.style.backgroundColor = "bisque"}
+                >
+                    Check Out
+                </button>
+
             </div>
         </div>
     )
