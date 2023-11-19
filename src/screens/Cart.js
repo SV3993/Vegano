@@ -1,6 +1,7 @@
 import React from 'react'
-// import trash from "../trash.svg"
 import { useCart, useDispatchCart } from '../components/ContextReducer'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 export default function Cart() {
 
@@ -37,41 +38,42 @@ export default function Cart() {
     let totalPrice = data.reduce((total, food) => total + food.price, 0);
     return (
         <div>
-
-            {console.log(data)}
-            <div className='container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md' >
-                <table className='table table-hover '>
-                    <thead className=' text-success fs-4'>
-                        <tr style={{ color: "yellow" }}>
-                            <th scope='col' >#</th>
-                            <th scope='col' >Name</th>
-                            <th scope='col' >Quantity</th>
-                            <th scope='col' >Option</th>
-                            <th scope='col' >Amount</th>
-                            <th scope='col' ></th>
+            <div className='container m-auto mt-5 table-responsive table-responsive-sm table-responsive-md' style={{borderRadius:"3px"}}>
+                <table className='table table-hover table-bordered' >
+                    <thead className='bg-success text-white fs-4'>
+                        <tr>
+                            <th scope='col'>#</th>
+                            <th scope='col'>Name</th>
+                            <th scope='col'>Quantity</th>
+                            <th scope='col'>Option</th>
+                            <th scope='col'>Amount</th>
+                            <th scope='col'></th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.map((food, index) => (
-                            <tr style={{ color: "white" }}>
-                                <th scope='row' >{index + 1}</th>
-                                <td >{food.name}</td>
+                            <tr key={index} style={{ backgroundColor: index % 2 === 0 ? "#E0E0E0" : "#F5F5F5" }}>
+                                <th scope='row'>{index + 1}</th>
+                                <td>{food.name}</td>
                                 <td>{food.qty}</td>
                                 <td>{food.size}</td>
-                                <td>{food.price}</td>
-                                <td><button type="button" className="btn p-0" onClick={() => { dispatch({ type: "REMOVE", index: index }) }}>Remove</button> </td>
+                                <td>₹{food.price.toFixed(2)}</td>
+                                <td>
+                                    <button
+                                        type="button"
+                                        className="btn btn-danger p-1"
+                                        onClick={() => { dispatch({ type: "REMOVE", index: index }) }}
+                                    >
+                                        <FontAwesomeIcon icon={faTrashAlt} />
+                                    </button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
-                <div><h1 className='fs-2'>Total Price: {totalPrice}/-</h1></div>
-                <button className='btn bg-white mt-5 ' onClick={handleCheckOut}> Check Out </button>
-                <div>
-                </div>
+                <div><h1 className='fs-2 text-success'>Total Price: ₹{totalPrice.toFixed(2)}</h1></div>
+                <button className='btn btn-success mt-3' onClick={handleCheckOut}>Check Out</button>
             </div>
-
-
-
         </div>
     )
 }
