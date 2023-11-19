@@ -6,7 +6,7 @@ import Card from '../components/Card'
 
 export default function Home() {
 
-  const [search,setSearch] = useState('');
+  const [search, setSearch] = useState('');
   const [foodCat, setFoodCat] = useState([]);
   const [foodItem, setFoodItem] = useState([]);
 
@@ -39,14 +39,58 @@ export default function Home() {
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img src="https://source.unsplash.com/random/900×300/?pizza" className="d-block w-100" style={{ "height": "539px", "filter": "brightness(39%)", "objectFit": "cover" }} alt="..." />
+            <div className="carousel-caption text">
+              <h3 style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.3)',position: 'relative', bottom: '206px', fontSize: '3rem', display: 'block', margin: 'auto', fontFamily: 'cursive' }}>"Good food is the foundation of genuine happiness."<p className="citation" style={{
+  fontSize: 'xx-large',
+  margin: '23px',
+  fontFamily: 'system-ui',
+  textShadow: 'none'
+}}>- Auguste Escoffier</p></h3>
+              
+            </div>
           </div>
           <div className="carousel-item">
             <img src="https://source.unsplash.com/random/900×300/?burger" className="d-block w-100" style={{ "height": "539px", "filter": "brightness(39%)", "objectFit": "cover" }} alt="..." />
+            <div className="carousel-caption text">
+              <h3 style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.3)',position: 'relative', bottom: '206px', fontSize: '3rem', display: 'block', margin: 'auto', fontFamily: 'cursive' }}>"One cannot think well, love well, sleep well if one has not dined well."<p className="citation" style={{
+  fontSize: 'xx-large',
+  margin: '23px',
+  fontFamily: 'system-ui',
+  textShadow: 'none'
+}}>- Virginia Woolf</p></h3>
+              
+            </div>
           </div>
           <div className="carousel-item">
             <img src="https://source.unsplash.com/random/900×300/?cake" className="d-block w-100" style={{ "height": "539px", "filter": "brightness(39%)", "objectFit": "cover" }} alt="..." />
+            <div className="carousel-caption text">
+              <h3 style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.3)',position: 'relative', bottom: '206px', fontSize: '3rem', display: 'block', margin: 'auto', fontFamily: 'cursive' }}>"Let food be thy medicine and medicine be thy food."<p className="citation" style={{
+  fontSize: 'xx-large',
+  margin: '23px',
+  fontFamily: 'system-ui',
+  textShadow: 'none'
+}}>- Hippocrates</p></h3>
+              
+            </div>
           </div>
+
+
+          {/* <div className="carousel-item">
+            <img src="https://source.unsplash.com/random/900×300/?burger" className="d-block w-100" style={{ "height": "539px", "filter": "brightness(39%)", "objectFit": "cover" }} alt="..." />
+            <div className="carousel-caption text-dark">
+              <h3 className="quote glow">"One cannot think well, love well, sleep well if one has not dined well."</h3>
+              
+            </div>
+          </div>
+          <div className="carousel-item">
+            <img src="https://source.unsplash.com/random/900×300/?cake" className="d-block w-100" style={{ "height": "539px", "filter": "brightness(39%)", "objectFit": "cover" }} alt="..." />
+            <div className="carousel-caption text-dark">
+              <h3 className="quote glow">"Let food be thy medicine and medicine be thy food."</h3>
+              
+            </div>
+          </div> */}
         </div>
+
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Previous</span>
@@ -57,13 +101,14 @@ export default function Home() {
         </button>
         <div className="carousel-caption d-none d-md-block">
           <div className="d-flex justify-content-center" role="search">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"  value={search} onChange={(e)=>{
+            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e) => {
               setSearch(e.target.value)
             }} />
             {/* <button className=" btn btn-primary me-md-2" type="submit">Search</button> */}
           </div>
         </div>
       </div>
+
 
 
       <div className='container m-3'>

@@ -1,64 +1,117 @@
-import React from 'react'
-import{Link} from 'react-router-dom'
-import fb from './logos/fb.jpg'
-import is from './logos/insta.jpg'
-import ld from './logos/lid.jpg'
-import pt from './logos/pt.jpg'
-import tw from './logos/tw.jpg'
-import wp from './logos/wtsa.jpg'
+// import React from 'react'
+// import{Link} from 'react-router-dom'
+// import fb from './logos/fb.jpg'
+// import is from './logos/insta.jpg'
+// import ld from './logos/lid.jpg'
+// import pt from './logos/pt.jpg'
+// import tw from './logos/tw.jpg'
+// import wp from './logos/wtsa.jpg'
 
-export default function Footer() {
+// export default function Footer() {
+//   return (
+
+//     <div className="mt-3">
+//     <footer className="text-center text-white bg-dark py-3">
+//       <div className="container">
+//         <div className="row justify-content-center">
+//           {/* Social media buttons */}
+//           <div className="col-12 mb-3">
+//             <button type="button" className="btn btn-outline-light rounded-circle mx-2">
+//               <img src={fb} alt="Facebook" />
+//             </button>
+
+//             <button type="button" className="btn btn-outline-light rounded-circle mx-2">
+//               <img src={is} alt="Instagram" />
+//             </button>
+
+//             <button type="button" className="btn btn-outline-light rounded-circle mx-2">
+//               <img src={ld} alt="LinkedIn" />
+//             </button>
+
+//             <button type="button" className="btn btn-outline-light rounded-circle mx-2">
+//               <img src={pt} alt="Pinterest" />
+//             </button>
+
+//             <button type="button" className="btn btn-outline-light rounded-circle mx-2">
+//               <img src={tw} alt="Twitter" />
+//             </button>
+
+//             <button type="button" className="btn btn-outline-light rounded-circle mx-2">
+//               <img src={wp} alt="WhatsApp" />
+//             </button>
+//           </div>
+
+//           {/* Copyright */}
+//           <div className="col-12">
+//             <p className="mb-0">
+//               © 2023: 
+//               <Link className="text-white ms-1" to="/">www.vegano.com</Link>
+//             </p>
+//           </div>
+//         </div>
+//       </div>
+//     </footer>
+//   </div>
+
+//   )
+// }
+
+
+
+
+
+
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram, faLinkedin, faPinterest, faTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+
+const Footer = () => {
   return (
+    <div className="mt-3" >
+      <footer className="text-center text-white py-3" style={{backgroundColor:"rgb(2, 1, 25)"}}>
+        <div className="container" >
+          <div className="row justify-content-center">
+            {/* Social media buttons */}
+            <div className="col-12 mb-3">
+              <button type="button" className="btn btn-outline-light rounded-circle mx-2">
+                <FontAwesomeIcon icon={faFacebook} />
+              </button>
 
-    <div className='mt-3'>
-      <footer className="text-center text-white responsive" style={{"backgroundColor":"#020119"}}>
-        {/* Grid container */}
-        <div className="container p-4 pb-0">
-          {/* Section: Social media */}
-          <section className="mb-4 mr-1">
-            {/* Facebook */}
-            <button type="button" class="btn btn-outline-success " style={{backgroundColor:"#020119",marginRight:"3px"}}>
-              <img src={fb} alt="logo" />
-            </button>
+              <button type="button" className="btn btn-outline-light rounded-circle mx-2">
+                <FontAwesomeIcon icon={faInstagram} />
+              </button>
 
-            {/* Instagram */}
-            <button type="button" class="btn btn-outline-success" style={{backgroundColor:"#020119",marginRight:"3px"}}>
-              <img src={is} alt="logo" />
-            </button>
+              <button type="button" className="btn btn-outline-light rounded-circle mx-2">
+                <FontAwesomeIcon icon={faLinkedin} />
+              </button>
 
-            {/* Linkedin */}
-            <button type="button" class="btn btn-outline-success" style={{backgroundColor:"#020119",marginRight:"3px"}}>
-              <img src={ld} alt="logo" />
-            </button>
+              <button type="button" className="btn btn-outline-light rounded-circle mx-2">
+                <FontAwesomeIcon icon={faPinterest} />
+              </button>
 
-            {/* Pinterest */}
-            <button type="button" class="btn btn-outline-success" style={{backgroundColor:"#020119",marginRight:"3px"}}>
-              <img src={pt} alt="logo" />
-            </button>
+              <button type="button" className="btn btn-outline-light rounded-circle mx-2">
+                <FontAwesomeIcon icon={faTwitter} />
+              </button>
 
+              <button type="button" className="btn btn-outline-light rounded-circle mx-2">
+                <FontAwesomeIcon icon={faWhatsapp} />
+              </button>
+            </div>
 
-
-            {/* Twitter */}
-            <button type="button" class="btn btn-outline-success" style={{backgroundColor:"#020119",marginRight:"3px"}}>
-              <img src={tw} alt="logo" />
-            </button>
-
-            {/* Whatsapp */}
-            <button type="button" class="btn btn-outline-success" style={{backgroundColor:"#020119",marginRight:"3px"}}>
-              <img src={wp} alt="logo" />
-            </button>
-          </section>
-          {/* Section: Social media */}
+            {/* Copyright */}
+            <div className="col-12">
+              <p className="mb-0">
+                © 2023: 
+                <Link className="text-white ms-1" to="/">www.vegano.com</Link>
+              </p>
+            </div>
+          </div>
         </div>
-        {/* Grid container */}
-
-        {/* Copyright */}
-        <div className="text-center p-3"style={{ "backgroundColor": "rgba(0, 0, 0, 0.2)"}}>
-          © 2023 : 
-          <Link className="text-white" to="/">www.vegano.com</Link>
-        </div>
-        {/* Copyright */}
       </footer>
     </div>
-  )
+  );
 }
+
+export default Footer;
