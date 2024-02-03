@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 export default function SignUp() {
+    let navigate=useNavigate();
 
     const [credentials, setcredentials] = useState({ name: "", location: "", email: "", password: "" });
 
@@ -17,8 +18,19 @@ export default function SignUp() {
             body: JSON.stringify({ name: credentials.name, email: credentials.email, password: credentials.password, location: credentials.location })
         });
         const json = await response.json();
-        console.log(json);
-        if (!json.success) {
+        // console.log(json);
+        if(json.success){
+            alert('Welcome To Vegano World');
+            setTimeout(()=>{
+                localStorage.setItem("userEmail",credentials.email);
+                let mail=localStorage.getItem("userEmail");
+                console.log(mail);
+                localStorage.setItem("authToken",json.authToken);
+                console.log(localStorage.getItem("authToken"));
+                navigate("/");
+            },500)
+        }
+        else if (!json.success) {
             alert('Enter Valid Credentials');
         }
     };

@@ -1,13 +1,13 @@
 
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb://mernapp:SAINATH@ac-35u9mis-shard-00-00.5oppbwe.mongodb.net:27017,ac-35u9mis-shard-00-01.5oppbwe.mongodb.net:27017,ac-35u9mis-shard-00-02.5oppbwe.mongodb.net:27017/foodData?replicaSet=atlas-mnb6ab-shard-0&ssl=true&authSource=admin';
+const mongoURI = 'mongodb+srv://u21ec130:SAI123@cluster0.vnxhjwu.mongodb.net/foodData?retryWrites=true&w=majority';
 mongoose.set('strictQuery', false);
 const mongoDB = async () => {
     await mongoose.connect(mongoURI, { useNewUrlParser: true }, async (err, result) => {
         if (err) console.log('Connection Failed\nThe Error Is:-', err);
         else {
             console.log("Connection Succeded");
-            const fetched_data = await mongoose.connection.db.collection("food2");
+            const fetched_data = await mongoose.connection.db.collection("food1");
 
 
             //There Is CRUD Operation In Mongoose
@@ -21,7 +21,7 @@ const mongoDB = async () => {
                 //     global.food2=data;
                 //     console.log(global.food2);
                 // }
-                const foodCategory = await mongoose.connection.db.collection("food1");
+                const foodCategory = await mongoose.connection.db.collection("food2");
                 foodCategory.find({}).toArray(function (err, catData) {
                     if (error) console.log("No Data Fetched");
                     else {
