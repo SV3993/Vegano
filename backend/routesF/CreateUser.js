@@ -4,9 +4,9 @@ const Router = express.Router();
 const user = require("../model/User");
 const { body, validationResult } = require('express-validator');
 
-const bcrypt=require('bcrypt');
-const jwt= require("jsonwebtoken");
-const jwtSecret="ThisIsMyFirstMernApplicationMadeInAuspiciousMonthOfDiwali";
+const bcrypt = require('bcrypt');
+const jwt = require("jsonwebtoken");
+const jwtSecret = "ThisIsMyFirstMernApplicationMadeInAuspiciousMonthOfDiwali";
 
 Router.post("/createuser",
     //Validator
@@ -23,8 +23,8 @@ Router.post("/createuser",
             return resp.status(400).json({ errors: errors.array() });
         }
 
-        const salt=await bcrypt.genSalt(10);
-        const hashVal=await bcrypt.hash(req.body.password,salt);
+        const salt = await bcrypt.genSalt(10);
+        const hashVal = await bcrypt.hash(req.body.password, salt);
 
         try {
             await user.create({
@@ -54,26 +54,26 @@ Router.post("/loginuser",
         if (!errors.isEmpty()) {
             return resp.status(400).json({ errors: errors.array() });
         }
-        let email=req.body.email;
+        let email = req.body.email;
         try {
-            let userData = await user.findOne({email});
+            let userData = await user.findOne({ email });
             if (!userData) {
                 return resp.status(400).json({ errors: "Invalid Credentials" });
             }
 
-            const pwdCompare= await bcrypt.compare(req.body.password,userData.password);
+            const pwdCompare = await bcrypt.compare(req.body.password, userData.password);
             if (!pwdCompare) {
                 return resp.status(400).json({ errors: "Invalid Credentials" });
             }
 
-            const data={
-                user:{
-                    id:userData.id
+            const data = {
+                user: {
+                    id: userData.id
                 }
             };
-            const authToken=jwt.sign(data,jwtSecret);
+            const authToken = jwt.sign(data, jwtSecret);
 
-            return resp.json({ success: true,authToken:authToken });
+            return resp.json({ success: true, authToken: authToken });
         }
         catch (error) {
             console.log(error);
